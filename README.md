@@ -1,4 +1,4 @@
-# amazin-link-checker
+# Amazin' Affiliate Link Checker
 
 ![alt text](screenshots/amazon-may-26-2019.png "Amazin' Link Checker screenshot 5/26/2019")
 
@@ -21,7 +21,7 @@ Unfortunately, not every product on Amazon is in the Amazon Product Advertising 
 1. Clone both this repo (the client) and the [server repo](https://github.com/MJGrant/amazin-link-checker-server)
 2. Open a terminal window for each repo
 3. In server, ```npm install``` and ```node app.js```
-4. In client, ```npm install``` and ```npm start```
+4. In client, ```npm install``` then ```cd amazin-link-checker``` and use ```npm start``` 
 5. In your browser go to ```localhost:3001```
 
 ### Running tests
