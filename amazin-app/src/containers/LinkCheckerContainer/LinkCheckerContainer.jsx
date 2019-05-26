@@ -30,7 +30,10 @@ export default class LinkCheckerContainer extends Component {
         linksProcessed: 0,
         currentArticleLink: '',
         socketID: '',
-        testStopped: false
+        testStopped: false,
+        userAccessKey: '',
+        userSecret: '',
+        userTag: ''
     }
 
     componentDidMount() {
@@ -126,12 +129,12 @@ export default class LinkCheckerContainer extends Component {
 
                 //dispatch(fetchDemo(userUrl, this.state.socketID));
                 this.setState({ testStopped: false });
-                socket.emit('beginProcessing', userUrl, this.state.socketID, this.state.userAccessKey, this.state.userSecret, this.state.userTag);
+                socket.emit('beginProcessing', userUrl, this.state.socketID, userAccessKey, userSecret, userTag);
             } else {
-                //console.log("One or more Amazon credential is missing");
+                console.log("One or more Amazon credential is missing");
             }
         } else {
-            //console.log("This url does not have http(s)://", userUrl);
+            console.log("This url does not have http(s)://", userUrl);
         }
     }
 

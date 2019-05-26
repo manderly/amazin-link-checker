@@ -71,6 +71,10 @@ export default class FormComponent extends Component {
     userTag: '',
     userAccessKey: '',
     userSecret: '',
+    userTagError: '',
+    userAccessKeyError: '',
+    userSecretError: '',
+    userUrlError: '',
     touched: {
       'userTag': false,
       'userAccessKey': false,

@@ -1,6 +1,7 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { LinkCheckerContainer } from 'containers'
 import styles from './App.scss'
