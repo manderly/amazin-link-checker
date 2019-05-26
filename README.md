@@ -1,5 +1,7 @@
 # amazin-link-checker
 
+![alt text](screenshots/amazon-may-26-2019.png "Amazin' Link Checker screenshot 5/26/2019")
+
 This github repo contains the tool's codebase and is made public as an example of my work. You can use the tool without cloning this repo by visiting it at (URL coming soon). 
 
 ## Who this tool is for
