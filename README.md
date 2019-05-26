@@ -26,11 +26,15 @@ Unfortunately, not every product on Amazon is in the Amazon Product Advertising 
 
 ### Running tests
 
-From the **server** directory: 
+#### Integration tests
 
-```nightwatch frontend.js``` runs integration tests
+From the **server** repo: 
 
-From the **client** directory:
+```nightwatch frontend.js``` runs integration tests. Requires client running (in another tab, navigate to client repo and use ```npm start```)
+
+#### Unit ("react snapshot") tests
+
+From the **client** repo:
 
 ```npm run test-u``` rebuilds snapshots and runs unit tests
 
