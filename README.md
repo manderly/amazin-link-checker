@@ -40,6 +40,19 @@ From the **client** repo:
 
 ```npm run test``` runs unit tests on existing snapshots
 
+## Deploying
+
+1. In the ```client``` repo, use ```npm run build``` to create a folder called ```build```
+2. Copy the contents of build 
+3. Go into the ```server``` repo directory
+4. Open the ```public``` folder
+5. Delete all of the files inside public
+6. Paste the contents of build into public
+7. Push this change to GitHub
+8. Use ```git push heroku master``` to push these changes to Heroku
+9. Use ```heroku open``` to open the app
+
+
 ## Want to make it better?
 Make a pull request and I'll check it out!
 
