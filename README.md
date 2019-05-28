@@ -26,15 +26,32 @@ Unfortunately, not every product on Amazon is in the Amazon Product Advertising 
 
 ### Running tests
 
-From the **server** directory: 
+#### Integration tests
 
-```nightwatch frontend.js``` runs integration tests
+From the **server** repo: 
 
-From the **client** directory:
+```nightwatch frontend.js``` runs integration tests. Requires client running (in another tab, navigate to client repo and use ```npm start```)
+
+#### Unit ("react snapshot") tests
+
+From the **client** repo:
 
 ```npm run test-u``` rebuilds snapshots and runs unit tests
 
 ```npm run test``` runs unit tests on existing snapshots
+
+## Deploying
+
+1. In the ```client``` repo, use ```npm run build``` to create a folder called ```build```
+2. Copy the contents of build 
+3. Go into the ```server``` repo directory
+4. Open the ```public``` folder
+5. Delete all of the files inside public
+6. Paste the contents of build into public
+7. Push this change to GitHub
+8. Use ```git push heroku master``` to push these changes to Heroku
+9. Use ```heroku open``` to open the app
+
 
 ## Want to make it better?
 Make a pull request and I'll check it out!
