@@ -1,54 +1,38 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import thunk from 'redux-thunk'
 import toJson from 'enzyme-to-json'
-import configureMockStore from 'redux-mock-store'
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme';
 import * as mockSocket from 'mock-socket';
 
 import LinkCheckerContainer from '../LinkCheckerContainer';
-import { doesNotThrow } from 'assert';
 
-const mockStore = configureMockStore([ thunk ])
-const dispatch = jest.fn(() => {})
 jest.mock('socket.io-client', () => {
   return mockSocket.SocketIO;
 });
 
 describe('LinkCheckerContainer', () => {
   test('renders all expected components', () => {
-    const container = shallow(<LinkCheckerContainer.WrappedComponent dispatch={dispatch} />);
+    const container = shallow(<LinkCheckerContainer />);
     expect(container.exists('#app-container')).toBe(true);
   });
 
   test('renders all expected components without redux demo data', () => {
-    const container = shallow(<LinkCheckerContainer.WrappedComponent dispatch={dispatch} />)
+    const container = shallow(<LinkCheckerContainer />)
     expect(toJson(container)).toMatchSnapshot()
   })
 
   test('renders all expected components with redux demo data', () => {
-    const demo = {
-      data: {
-        text: 'from demo'
-      }
-    }
-    const container = shallow(<LinkCheckerContainer.WrappedComponent { ...{dispatch, demo} } />)
+    const container = shallow(<LinkCheckerContainer />)
     expect(toJson(container)).toMatchSnapshot()
   });
 
   test('renders all expected components with redux store', () => {
-    const demo = {
-      data: {
-        text: 'from demo'
-      }
-    }
-    const store = mockStore({ demo })
-    const container = renderer.create(<LinkCheckerContainer.WrappedComponent { ...{ dispatch, store } } />)
+    const container = renderer.create(<LinkCheckerContainer />)
     expect(container).toMatchSnapshot()
   });
 
   test('progress bar states', () => {
-    const container = shallow(<LinkCheckerContainer.WrappedComponent dispatch={dispatch} />)
+    const container = shallow(<LinkCheckerContainer />)
 
     // bar empty, before scraping begins
     container.setState({linksProcessed: 0, affiliateLinkCount: -1, scrapeInProgress: false});

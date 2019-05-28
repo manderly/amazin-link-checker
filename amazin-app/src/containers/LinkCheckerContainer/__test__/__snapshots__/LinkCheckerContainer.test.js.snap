@@ -1,0 +1,888 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkCheckerContainer renders all expected components with redux demo data 1`] = `
+<div>
+  <Container
+    id="app-container"
+    tag="div"
+  >
+    <Jumbotron
+      fluid={true}
+      tag="div"
+    >
+      <link
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <h2
+        id="link-checker-title"
+      >
+        Amazin' Affiliate Link Checker
+      </h2>
+      <p>
+        Identify broken, outdated and mis-tagged Amazon product links in your blog articles.
+        <br />
+        Requires an Amazon Associates account and Amazon Product Advertising API credentials. 
+        <a
+          href="/"
+        >
+          <br />
+          Watch a demo video.
+        </a>
+      </p>
+      <Row
+        tag="div"
+      >
+        <FormComponent
+          handleClick={[Function]}
+        />
+        <Col
+          lg={6}
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div>
+            <h4>
+              Recently tested urls
+            </h4>
+            <Table
+              responsiveTag="div"
+              tag="table"
+            >
+              <tbody
+                id="recent-article-links"
+              />
+            </Table>
+          </div>
+        </Col>
+      </Row>
+    </Jumbotron>
+    <Element
+      className="element"
+      name="scrollToElement"
+    />
+    <div
+      className="hidden"
+    >
+      <h3
+        id="progress"
+      >
+        Progress
+      </h3>
+      <p
+        className="hidden"
+      >
+        <label>
+          Your article's URL
+        </label>
+        <br />
+         
+        <a
+          href=""
+        />
+      </p>
+      <div
+        className="pad-bottom"
+      >
+        <div
+          className="text-center"
+        >
+          Reticulating splines...
+          <Progress
+            color="info"
+            max={100}
+            tag="div"
+            value={0}
+          />
+        </div>
+        <Button
+          className="btn-danger center-block"
+          color="secondary"
+          onClick={[Function]}
+          tag="button"
+        >
+          Stop test
+        </Button>
+      </div>
+    </div>
+    <div
+      className="hidden"
+    >
+      <h3>
+        Results
+      </h3>
+      <p>
+        0
+         / 
+        -1
+         Affiliate links processed
+      </p>
+      <Table
+        hover={true}
+        responsiveTag="div"
+        size="sm"
+        tag="table"
+      >
+        <thead>
+          <tr>
+            <th
+              width="120"
+            >
+              Your article's Amazon links
+            </th>
+            <th
+              width="60"
+            >
+              Valid
+            </th>
+            <th
+              width="300"
+            >
+              Product title
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </Table>
+    </div>
+  </Container>
+  <Container
+    className="dark-grey-bg"
+    fluid={true}
+    tag="div"
+  >
+    <Row
+      className="pad-footer"
+      tag="div"
+    >
+      <Col
+        lg="5"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <label>
+          Who this tool is for
+        </label>
+        <p>
+          This tool is intended for Amazon Associates ("affiliates") with established websites.
+        </p>
+        <label>
+          Why use this tool
+        </label>
+        <p>
+          For a variety of reasons, your site's Amazon.com product links may become outdated. When this happens, your visitors end up on 404 pages ("dog pages") instead of the product(s) you meant to show them. This tool helps you quickly locate those dead links.
+        </p>
+        <label>
+          How it works
+        </label>
+        <p>
+          This tool scans your article for Amazon product links. It extracts a product ID from each link and checks that the product ID is valid. This website does not store your credentials or any information about your site.
+        </p>
+      </Col>
+      <Col
+        lg="1"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      />
+      <Col
+        lg="5"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <label>
+          Interpreting your results
+        </label>
+        <p>
+          Unfortunately, not every product on Amazon is in the Amazon Product Advertising API. Valid links may be marked "invalid" by this tool if the product doesn't exist in the API, even if it exists on Amazon.
+        </p>
+        <p>
+          The tool also considers links to Amazon.com search results to be "invalid" even though they are perfectly acceptable to Amazon and your site's users.
+        </p>
+        <p>
+          You should manually confirm any "invalid" results you get.
+        </p>
+        <label>
+          About the author
+        </label>
+        <p>
+          This tool was created by blogger and web developer 
+          <a
+            href="https://github.com/MJGrant"
+          >
+            MJ Grant
+          </a>
+          .
+        </p>
+      </Col>
+    </Row>
+  </Container>
+</div>
+`;
+
+exports[`LinkCheckerContainer renders all expected components with redux store 1`] = `
+<div>
+  <div
+    className="container"
+    id="app-container"
+  >
+    <div
+      className="jumbotron jumbotron-fluid"
+    >
+      <link
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <h2
+        id="link-checker-title"
+      >
+        Amazin' Affiliate Link Checker
+      </h2>
+      <p>
+        Identify broken, outdated and mis-tagged Amazon product links in your blog articles.
+        <br />
+        Requires an Amazon Associates account and Amazon Product Advertising API credentials. 
+        <a
+          href="/"
+        >
+          <br />
+          Watch a demo video.
+        </a>
+      </p>
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-6"
+        >
+          <div>
+            <form
+              className=""
+            >
+              <div
+                className="form-row"
+              >
+                <div
+                  className="col-lg-12"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className=""
+                      htmlFor="enter-tag"
+                    >
+                      <span>
+                        Your 
+                        <a
+                          href="https://docs.aws.amazon.com/AWSECommerceService/latest/DG/becomingAssociate.html"
+                        >
+                          Amazon Associate
+                        </a>
+                         Tag
+                      </span>
+                    </label>
+                    <input
+                      className="form-control"
+                      id="enter-tag"
+                      name="userTag"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="your-tag-20"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      Must include Amazon Associate Tag
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-row"
+              >
+                <div
+                  className="col-lg-12"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className=""
+                      htmlFor="enter-key-id"
+                    >
+                      <span>
+                        Your 
+                        <a
+                          href="https://docs.aws.amazon.com/AWSECommerceService/latest/DG/becomingDev.html"
+                        >
+                          Access Key ID
+                        </a>
+                      </span>
+                    </label>
+                    <input
+                      className="form-control"
+                      id="enter-key-id"
+                      name="userAccessKey"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Access key ID"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      Please provide your Access Key ID
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-row"
+              >
+                <div
+                  className="col-lg-12"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className=""
+                      htmlFor="enter-secret"
+                    >
+                      <span>
+                        Your 
+                        <a
+                          href="https://docs.aws.amazon.com/AWSECommerceService/latest/DG/becomingDev.html"
+                        >
+                          Secret Access Key
+                        </a>
+                      </span>
+                    </label>
+                    <input
+                      className="form-control"
+                      id="enter-secret"
+                      name="userSecret"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="Secret Access Key"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      Please provide your Secret Access Key
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-row"
+              >
+                <div
+                  className="col-lg-12"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className=""
+                      htmlFor="enter-url"
+                    >
+                      Your Article URL
+                    </label>
+                    <input
+                      className="form-control"
+                      id="enter-url"
+                      name="userUrl"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="http://your-site.com/yourarticle"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      Must enter the URL to an article (include http:// or https://)
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                aria-label={null}
+                className="btn btn-primary"
+                id="button-submit-form"
+                onClick={[Function]}
+                type="button"
+              >
+                Test
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          className="col-lg-6"
+        >
+          <div>
+            <h4>
+              Recently tested urls
+            </h4>
+            <table
+              className="table"
+            >
+              <tbody
+                id="recent-article-links"
+              />
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="element"
+      name="scrollToElement"
+    />
+    <div
+      className="hidden"
+    >
+      <h3
+        id="progress"
+      >
+        Progress
+      </h3>
+      <p
+        className="hidden"
+      >
+        <label>
+          Your article's URL
+        </label>
+        <br />
+         
+        <a
+          href=""
+        >
+          
+        </a>
+      </p>
+      <div
+        className="pad-bottom"
+      >
+        <div
+          className="text-center"
+        >
+          Reticulating splines...
+          <div
+            className="progress"
+          >
+            <div
+              aria-valuemax={100}
+              aria-valuemin="0"
+              aria-valuenow={0}
+              className="progress-bar bg-info"
+              role="progressbar"
+              style={
+                Object {
+                  "width": "0%",
+                }
+              }
+            />
+          </div>
+        </div>
+        <button
+          aria-label={null}
+          className="btn-danger center-block btn btn-secondary"
+          onClick={[Function]}
+          type="button"
+        >
+          Stop test
+        </button>
+      </div>
+    </div>
+    <div
+      className="hidden"
+    >
+      <h3>
+        Results
+      </h3>
+      <p>
+        0
+         / 
+        -1
+         Affiliate links processed
+      </p>
+      <table
+        className="table table-sm table-hover"
+      >
+        <thead>
+          <tr>
+            <th
+              width="120"
+            >
+              Your article's Amazon links
+            </th>
+            <th
+              width="60"
+            >
+              Valid
+            </th>
+            <th
+              width="300"
+            >
+              Product title
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div
+    className="dark-grey-bg container-fluid"
+  >
+    <div
+      className="pad-footer row"
+    >
+      <div
+        className="col-lg-5"
+      >
+        <label>
+          Who this tool is for
+        </label>
+        <p>
+          This tool is intended for Amazon Associates ("affiliates") with established websites.
+        </p>
+        <label>
+          Why use this tool
+        </label>
+        <p>
+          For a variety of reasons, your site's Amazon.com product links may become outdated. When this happens, your visitors end up on 404 pages ("dog pages") instead of the product(s) you meant to show them. This tool helps you quickly locate those dead links.
+        </p>
+        <label>
+          How it works
+        </label>
+        <p>
+          This tool scans your article for Amazon product links. It extracts a product ID from each link and checks that the product ID is valid. This website does not store your credentials or any information about your site.
+        </p>
+      </div>
+      <div
+        className="col-lg-1"
+      />
+      <div
+        className="col-lg-5"
+      >
+        <label>
+          Interpreting your results
+        </label>
+        <p>
+          Unfortunately, not every product on Amazon is in the Amazon Product Advertising API. Valid links may be marked "invalid" by this tool if the product doesn't exist in the API, even if it exists on Amazon.
+        </p>
+        <p>
+          The tool also considers links to Amazon.com search results to be "invalid" even though they are perfectly acceptable to Amazon and your site's users.
+        </p>
+        <p>
+          You should manually confirm any "invalid" results you get.
+        </p>
+        <label>
+          About the author
+        </label>
+        <p>
+          This tool was created by blogger and web developer 
+          <a
+            href="https://github.com/MJGrant"
+          >
+            MJ Grant
+          </a>
+          .
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LinkCheckerContainer renders all expected components without redux demo data 1`] = `
+<div>
+  <Container
+    id="app-container"
+    tag="div"
+  >
+    <Jumbotron
+      fluid={true}
+      tag="div"
+    >
+      <link
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <h2
+        id="link-checker-title"
+      >
+        Amazin' Affiliate Link Checker
+      </h2>
+      <p>
+        Identify broken, outdated and mis-tagged Amazon product links in your blog articles.
+        <br />
+        Requires an Amazon Associates account and Amazon Product Advertising API credentials. 
+        <a
+          href="/"
+        >
+          <br />
+          Watch a demo video.
+        </a>
+      </p>
+      <Row
+        tag="div"
+      >
+        <FormComponent
+          handleClick={[Function]}
+        />
+        <Col
+          lg={6}
+          tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <div>
+            <h4>
+              Recently tested urls
+            </h4>
+            <Table
+              responsiveTag="div"
+              tag="table"
+            >
+              <tbody
+                id="recent-article-links"
+              />
+            </Table>
+          </div>
+        </Col>
+      </Row>
+    </Jumbotron>
+    <Element
+      className="element"
+      name="scrollToElement"
+    />
+    <div
+      className="hidden"
+    >
+      <h3
+        id="progress"
+      >
+        Progress
+      </h3>
+      <p
+        className="hidden"
+      >
+        <label>
+          Your article's URL
+        </label>
+        <br />
+         
+        <a
+          href=""
+        />
+      </p>
+      <div
+        className="pad-bottom"
+      >
+        <div
+          className="text-center"
+        >
+          Reticulating splines...
+          <Progress
+            color="info"
+            max={100}
+            tag="div"
+            value={0}
+          />
+        </div>
+        <Button
+          className="btn-danger center-block"
+          color="secondary"
+          onClick={[Function]}
+          tag="button"
+        >
+          Stop test
+        </Button>
+      </div>
+    </div>
+    <div
+      className="hidden"
+    >
+      <h3>
+        Results
+      </h3>
+      <p>
+        0
+         / 
+        -1
+         Affiliate links processed
+      </p>
+      <Table
+        hover={true}
+        responsiveTag="div"
+        size="sm"
+        tag="table"
+      >
+        <thead>
+          <tr>
+            <th
+              width="120"
+            >
+              Your article's Amazon links
+            </th>
+            <th
+              width="60"
+            >
+              Valid
+            </th>
+            <th
+              width="300"
+            >
+              Product title
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </Table>
+    </div>
+  </Container>
+  <Container
+    className="dark-grey-bg"
+    fluid={true}
+    tag="div"
+  >
+    <Row
+      className="pad-footer"
+      tag="div"
+    >
+      <Col
+        lg="5"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <label>
+          Who this tool is for
+        </label>
+        <p>
+          This tool is intended for Amazon Associates ("affiliates") with established websites.
+        </p>
+        <label>
+          Why use this tool
+        </label>
+        <p>
+          For a variety of reasons, your site's Amazon.com product links may become outdated. When this happens, your visitors end up on 404 pages ("dog pages") instead of the product(s) you meant to show them. This tool helps you quickly locate those dead links.
+        </p>
+        <label>
+          How it works
+        </label>
+        <p>
+          This tool scans your article for Amazon product links. It extracts a product ID from each link and checks that the product ID is valid. This website does not store your credentials or any information about your site.
+        </p>
+      </Col>
+      <Col
+        lg="1"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      />
+      <Col
+        lg="5"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        <label>
+          Interpreting your results
+        </label>
+        <p>
+          Unfortunately, not every product on Amazon is in the Amazon Product Advertising API. Valid links may be marked "invalid" by this tool if the product doesn't exist in the API, even if it exists on Amazon.
+        </p>
+        <p>
+          The tool also considers links to Amazon.com search results to be "invalid" even though they are perfectly acceptable to Amazon and your site's users.
+        </p>
+        <p>
+          You should manually confirm any "invalid" results you get.
+        </p>
+        <label>
+          About the author
+        </label>
+        <p>
+          This tool was created by blogger and web developer 
+          <a
+            href="https://github.com/MJGrant"
+          >
+            MJ Grant
+          </a>
+          .
+        </p>
+      </Col>
+    </Row>
+  </Container>
+</div>
+`;

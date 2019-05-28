@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFieldComponent renders itself text prop 1`] = `
+<div
+  className="form-row"
+>
+  <div
+    className="col-lg-12"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="test-id"
+      >
+        Test label here
+      </label>
+      <input
+        className="form-control"
+        id="test-id"
+        name="http://localhost.test/"
+        onBlur={[MockFunction]}
+        onChange={[MockFunction]}
+        placeholder="http://localhost.test/yourarticle"
+        type="text"
+        value="test-val"
+      />
+      <div
+        className="invalid-feedback"
+      >
+        Test feedback text here
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormFieldComponent renders itself with defaults 1`] = `
+<div
+  className="form-row"
+>
+  <div
+    className="col-lg-12"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor=""
+      >
+        
+      </label>
+      <input
+        className="form-control"
+        id=""
+        name=""
+        placeholder=""
+        type="text"
+        value=""
+      />
+      <div
+        className="invalid-feedback"
+      />
+    </div>
+  </div>
+</div>
+`;

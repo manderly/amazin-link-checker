@@ -9,13 +9,15 @@ import io from 'socket.io-client';
 
 import styles from './LinkCheckerContainer.scss';
 
-const socket = io('http://localhost:3000');
-
+let socket = io(); //production
 
 export default class LinkCheckerContainer extends Component {
     constructor(props) {
         super(props);
         this.barProgress = 0;
+        if (process.env.NODE_ENV !== 'production') {
+            socket = io('http://localhost:3000');
+        }
     }
 
     static propTypes = {

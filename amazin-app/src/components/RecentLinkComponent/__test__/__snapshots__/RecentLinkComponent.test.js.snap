@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentLinkComponent renders itself text prop 1`] = `
+<tr>
+  <td
+    className="tableUsersLinkText"
+  >
+    <a
+      href=""
+      id="recent-url-undefined"
+    >
+      
+    </a>
+  </td>
+  <td
+    width="80"
+  >
+    <button
+      aria-label={null}
+      className="btn btn-warning btn-sm"
+      id="button-retest-undefined"
+      onClick={[Function]}
+    >
+      Re-test
+    </button>
+  </td>
+</tr>
+`;
+
+exports[`RecentLinkComponent renders itself with defaults 1`] = `
+<tr>
+  <td
+    className="tableUsersLinkText"
+  >
+    <a
+      href=""
+      id="recent-url-undefined"
+    >
+      
+    </a>
+  </td>
+  <td
+    width="80"
+  >
+    <button
+      aria-label={null}
+      className="btn btn-warning btn-sm"
+      id="button-retest-undefined"
+      onClick={[Function]}
+    >
+      Re-test
+    </button>
+  </td>
+</tr>
+`;
