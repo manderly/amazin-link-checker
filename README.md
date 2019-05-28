@@ -21,7 +21,7 @@ Unfortunately, not every product on Amazon is in the Amazon Product Advertising 
 1. Clone both this repo (the client) and the [server repo](https://github.com/MJGrant/amazin-link-checker-server)
 2. Open a terminal window for each repo
 3. In server, ```npm install``` and ```node app.js```
-4. In client, ```npm install``` then ```cd amazin-link-checker``` and use ```npm start``` 
+4. In client, ```yarn install``` then ```cd amazin-link-checker``` and use ```yarn start``` 
 5. In your browser go to ```localhost:3001```
 
 ### Running tests
@@ -36,13 +36,13 @@ From the **server** repo:
 
 From the **client** repo:
 
-```npm run test-u``` rebuilds snapshots and runs unit tests
+```yarn test``` rebuilds snapshots and runs unit tests
 
-```npm run test``` runs unit tests on existing snapshots
+```yarn test-u``` runs unit tests on existing snapshots
 
 ## Deploying
 
-1. In the ```client``` repo, use ```npm run build``` to create a folder called ```build```
+1. In the ```client``` repo, use ```yarn run build``` to create a folder called ```build```
 2. Copy the contents of build 
 3. Go into the ```server``` repo directory
 4. Open the ```public``` folder
