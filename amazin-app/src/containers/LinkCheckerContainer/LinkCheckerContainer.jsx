@@ -35,7 +35,8 @@ export default class LinkCheckerContainer extends Component {
         testStopped: false,
         userAccessKey: '',
         userSecret: '',
-        userTag: ''
+        userTag: '',
+        marketplace: ''
     }
 
     componentDidMount() {
@@ -92,7 +93,7 @@ export default class LinkCheckerContainer extends Component {
     }
 
 
-    handleClick = (userUrl, validateForm, userAccessKey, userSecret, userTag) => {
+    handleClick = (userUrl, validateForm, userAccessKey, userSecret, userTag, marketplace) => {
         // only used for the form, no call to validateForm is made when using a re-test button
         let usingRetest = true;
         if (validateForm) {
@@ -112,6 +113,7 @@ export default class LinkCheckerContainer extends Component {
                 this.setState({ userAccessKey: userAccessKey });
                 this.setState({ userSecret: userSecret });
                 this.setState({ userTag: userTag });
+                this.setState({ marketplace: marketplace });
 
                 if (!usingRetest) {
                     //so re-tested URLs dont get re-added to the recently tested list 
@@ -131,9 +133,9 @@ export default class LinkCheckerContainer extends Component {
 
                 //dispatch(fetchDemo(userUrl, this.state.socketID));
                 this.setState({ testStopped: false });
-                socket.emit('beginProcessing', userUrl, this.state.socketID, userAccessKey, userSecret, userTag);
+                socket.emit('beginProcessing', userUrl, this.state.socketID, userAccessKey, userSecret, userTag, marketplace);
             } else {
-                console.log("One or more Amazon credential is missing");
+                console.log("One or more Amazon credential(s) are missing");
             }
         } else {
             console.log("This url does not have http(s)://", userUrl);
@@ -165,7 +167,7 @@ export default class LinkCheckerContainer extends Component {
     displayRecentArticles(results = []) {
         return results.filter(l => l !== null && l !== undefined)
             .map((recentLink, index) => {
-                let listItem = <RecentLinkComponent recentLink={recentLink} handleClick={() => this.handleClick(recentLink, '', this.state.userAccessKey, this.state.userSecret, this.state.userTag)} key={index} index={index} />;
+                let listItem = <RecentLinkComponent recentLink={recentLink} handleClick={() => this.handleClick(recentLink, '', this.state.userAccessKey, this.state.userSecret, this.state.userTag, this.state.marketplace)} key={index} index={index} />;
                 return (index < 8) ? listItem : null
             })
     }
@@ -178,7 +180,7 @@ export default class LinkCheckerContainer extends Component {
         } else if (progress >= 100) {
             //restarting current test
             //re-uses saved user credentials; may want to take from form again 
-            this.handleClick(url, '', this.state.userAccessKey, this.state.userSecret, this.state.userTag);
+            this.handleClick(url, '', this.state.userAccessKey, this.state.userSecret, this.state.userTag, this.state.marketplace);
         }
 
     }
@@ -295,7 +297,7 @@ export default class LinkCheckerContainer extends Component {
                             <p>The tool also considers links to Amazon.com search results to be "invalid" even though they are perfectly acceptable to Amazon and your site's users.</p>
                             <p>You should manually confirm any "invalid" results you get.</p>
                             <label>About the author</label>
-                            <p>This tool was created by blogger and web developer <a href="https://github.com/MJGrant">MJ Grant</a>.</p>
+                            <p>This tool was created by blogger and web developer <a href="https://github.com/MJGrant">Mandi Burley</a>.</p>
                         </Col>
                     </Row>
                 </Container>

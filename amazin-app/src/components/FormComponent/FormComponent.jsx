@@ -1,10 +1,32 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { Button, Form, Col}  from 'reactstrap'
+import { Button, Form, Col, Label}  from 'reactstrap'
 import { FormFieldComponent } from 'components';
 
 import styles from './FormComponent.scss'
+
+import Select from 'react-select';
+
+const marketplaces = [
+  { value: 'www.amazon.com', label: '🇺🇸 United States - www.amazon.com' },
+  { value: 'www.amazon.ca', label: '🇨🇦 Canada - www.amazon.ca' },
+  { value: 'www.amazon.com.mx', label: '🇲🇽 Mexico - www.amazon.com.mx' },
+  { value: 'www.amazon.com.br', label: '🇧🇷 Brazil - www.amazon.com.br' },
+  { value: 'www.amazon.co.uk', label: '🇬🇧 United Kingdom - www.amazon.co.uk' },
+  { value: 'www.amazon.de', label: '🇩🇪 Germany - www.amazon.de' },
+  { value: 'www.amazon.fr', label: '🇫🇷 France - www.amazon.fr' },
+  { value: 'www.amazon.es', label: '🇪🇸 Spain - www.amazon.es' },
+  { value: 'www.amazon.in', label: '🇮🇳 India - www.amazon.in' },
+  { value: 'www.amazon.it', label: '🇮🇹 Italy - www.amazon.it' },
+  { value: 'www.amazon.ae', label: '🇦🇪 Arab Emirates - www.amazon.ae' },
+  { value: 'www.amazon.sa', label: '🇸🇦 Saudi Arabia - www.amazon.sa' },
+  { value: 'www.amazon.com.tr', label: '🇹🇷 Turkey - www.amazon.com.tr' },
+  { value: 'www.amazon.nl', label: '🇳🇱 Netherlands - www.amazon.nl' },
+  { value: 'www.amazon.co.jp', label: '🇯🇵 Japan - www.amazon.co.jp' },
+  { value: 'www.amazon.com.au', label: '🇦🇺 Australia - www.amazon.com.au' },
+  { value: 'www.amazon.sg', label: '🇸🇬 Singapore - www.amazon.sg' }
+]
 
 export default class FormComponent extends Component {
   static propTypes = {
@@ -114,7 +136,7 @@ export default class FormComponent extends Component {
               feedbackText="Must include Amazon Associate Tag"/>
 
             <FormFieldComponent 
-              labelContents={<span>Your <a href="https://docs.aws.amazon.com/AWSECommerceService/latest/DG/becomingDev.html">Access Key ID</a></span>}
+              labelContents={<span>Your <a href="https://webservices.amazon.com/paapi5/documentation/register-for-pa-api.html">Access Key ID</a></span>}
               errorClass={shouldMarkError('userAccessKeyError') ? "is-invalid" : ""}
               nameVal="userAccessKey"
               val={userAccessKey} 
@@ -125,7 +147,7 @@ export default class FormComponent extends Component {
               feedbackText="Please provide your Access Key ID"/>
 
             <FormFieldComponent 
-              labelContents={<span>Your <a href="https://docs.aws.amazon.com/AWSECommerceService/latest/DG/becomingDev.html">Secret Access Key</a></span>}
+              labelContents={<span>Your <a href="https://webservices.amazon.com/paapi5/documentation/register-for-pa-api.html">Secret Access Key</a></span>}
               errorClass={shouldMarkError('userSecretError') ? "is-invalid" : ""}
               nameVal="userSecret"
               val={userSecret}
@@ -145,6 +167,15 @@ export default class FormComponent extends Component {
               handleBlur={this.handleBlur}
               placeholderText="http://your-site.com/yourarticle" 
               feedbackText="Must enter the URL to an article (include http:// or https://)"/>
+
+            <Label for="marketplace-select">Marketplace</Label>
+            <Select
+              id="marketplace-select"
+              defaultValue={marketplaces[0]}
+              options={marketplaces}
+              />
+
+              <br/>
               
             <Button
               id="button-submit-form"
