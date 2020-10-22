@@ -40,6 +40,11 @@ export default class FormComponent extends Component {
     });
   }
 
+  selectMarketplace = (event) => {
+    console.log(event);
+    this.setState({['marketplace']: event.value});
+  }
+
   handleBlur = (event) => {
     const { name } = event.target;
     this.setState({[name]: event.target.value});
@@ -78,7 +83,7 @@ export default class FormComponent extends Component {
         'userTag': true,
         'userAccessKey': true,
         'userSecret':true,
-        'userUrl':true 
+        'userUrl':true,
       },
     });
 
@@ -93,6 +98,7 @@ export default class FormComponent extends Component {
     userTag: '',
     userAccessKey: '',
     userSecret: '',
+    marketplace: marketplaces[0].value,
     userTagError: '',
     userAccessKeyError: '',
     userSecretError: '',
@@ -107,7 +113,7 @@ export default class FormComponent extends Component {
 
   render () {
     const { handleClick } = this.props;
-    const { userUrl, userTag, userAccessKey, userSecret } = this.state;
+    const { userUrl, userTag, userAccessKey, userSecret, marketplace } = this.state;
 
     const shouldMarkError = (errorField) => {
       // mark the field as being in error state if an error exists for it AND if it's been touched by the user
@@ -171,8 +177,10 @@ export default class FormComponent extends Component {
             <Label for="marketplace-select">Marketplace</Label>
             <Select
               id="marketplace-select"
+              name="marketplace"
               defaultValue={marketplaces[0]}
               options={marketplaces}
+              onChange={this.selectMarketplace}
               />
 
               <br/>
@@ -180,7 +188,7 @@ export default class FormComponent extends Component {
             <Button
               id="button-submit-form"
               color="primary"
-              onClick={() => handleClick(userUrl, this.validateForm, userAccessKey, userSecret, userTag)}>
+              onClick={() => handleClick(userUrl, this.validateForm, userAccessKey, userSecret, userTag, marketplace)}>
             Test
             </Button>
           </Form>
