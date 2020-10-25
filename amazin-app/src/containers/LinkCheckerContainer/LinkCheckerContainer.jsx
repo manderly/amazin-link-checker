@@ -54,23 +54,25 @@ export default class LinkCheckerContainer extends Component {
                 this.setState({ links: data });
             }
             //else, no data was received 
-        })
-
-        socket.on('serverDataReceived', (data) => {
-            //gets it piecemeal
-            if (data) {
-                this.setState({ links: [...this.state.links, data] });
-                this.setState({ linksProcessed: this.state.linksProcessed + 1 });
-                if (this.state.linksProcessed >= this.state.count) {
-                    this.setState({ scrapeInProgress: false });
-                }
-            }
         });
 
         socket.on('urlsScraped', (count) => {
             this.setState({ affiliateLinkCount: count });
             this.setState({ linksProcessed: 0 });
             this.setState({ links: [] });
+        });
+
+        socket.on('serverDataReceived', (data, linksProcessed) => {
+            //gets it as a whole chunk, redraw UI to capture all the pieces that were updated
+            if (data) {
+                this.setState({ links: data }); //[...this.state.links, data] });
+                this.setState({ linksProcessed: linksProcessed });
+                if (this.state.linksProcessed >= this.state.count) {
+                    this.setState({ scrapeInProgress: false });
+                }
+            } else {
+                console.log("No data came back");
+            }
         });
 
         Events.scrollEvent.register('begin', function (to, element) {
@@ -142,7 +144,7 @@ export default class LinkCheckerContainer extends Component {
         }
     }
 
-    displayAmazonResults(results = []) {
+    displayAmazonResults(results) {
         return results.filter(l => l !== null && l !== undefined)
             .map((linkData, index) => {
                 const item = linkData;
@@ -201,6 +203,8 @@ export default class LinkCheckerContainer extends Component {
                 if (scrapeInProgress) {
                     this.barProgress = 2;
                     progressText = `Scraping your site for Amazon links...`;
+                } else {
+                    progressText = `Scrape failed`;
                 }
             } else if (linksProcessed === 0 && affiliateLinkCount === 0) {
                 //done scraping and no links were found
