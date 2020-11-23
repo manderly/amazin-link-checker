@@ -49,8 +49,15 @@ From the **client** repo:
 5. Delete all of the files inside public
 6. Paste the contents of build into public
 7. Push this change to GitHub
-8. Use ```git push heroku master``` to push these changes to Heroku
+8. Use ```git push heroku-amazin master``` to push these changes to Heroku
 9. Use ```heroku open``` to open the app
+
+Troubleshooting:
+If the heroku repo isn't hooked up (403 when trying to push to heroku), follow these steps:
+1. In Terminal, ```heroku login``` and follow the steps to log in
+2. Still in Terminal, enter ```heroku git:remote -a amazin-link-checker```
+3. For clarity and to avoid confusion with other Heroku remotes, I renamed this one to heroku-amazin ```git remote rename heroku heroku-amazin```
+4. Now the push can be done with ```git push heroku-amazin master```
 
 
 ## Want to make it better?
