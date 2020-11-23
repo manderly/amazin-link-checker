@@ -43,7 +43,7 @@ From the **client** repo:
 ## Deploying
 
 1. In the ```client``` repo, use ```yarn run build``` to create a folder called ```build```
-2. Copy the ``contents`` of build (ie: not the build folder but what's inside it)
+2. Copy the **contents** of ``build`` (ie: not the build folder but what's inside it)
 3. Go into the ```server``` repo directory
 4. Open the ```public``` folder
 5. Delete all of the files inside public
