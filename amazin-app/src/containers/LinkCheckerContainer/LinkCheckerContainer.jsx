@@ -62,14 +62,12 @@ export default class LinkCheckerContainer extends Component {
             this.setState({ links: [] });
         });
 
-        socket.on('serverDataReceived', (data, linksProcessed) => {
+        socket.on('serverDataReceived', (data, linksProcessed, scrapeInProgress) => {
             //gets it as a whole chunk, redraw UI to capture all the pieces that were updated
             if (data) {
                 this.setState({ links: data }); //[...this.state.links, data] });
                 this.setState({ linksProcessed: linksProcessed });
-                if (this.state.linksProcessed >= this.state.count) {
-                    this.setState({ scrapeInProgress: false });
-                }
+                this.setState({ scrapeInProgress });
             } else {
                 console.log("No data came back");
             }
@@ -148,9 +146,15 @@ export default class LinkCheckerContainer extends Component {
         return results.filter(l => l !== null && l !== undefined)
             .map((linkData, index) => {
                 const item = linkData;
+
                 let icon = "glyphicon glyphicon-remove text-danger";
+
                 if (item.validOnAmazon) {
                     icon = "glyphicon glyphicon-ok text-success";
+                }
+
+                if (item.itemName === "Processing...") {
+                    icon = "glyphicon glyphicon-question-sign text-muted"
                 }
 
                 let tableRow = <tr key={index}>
@@ -162,7 +166,7 @@ export default class LinkCheckerContainer extends Component {
                     </td>
                     <td className="tableProductTitle">{item.itemName}<br /><small><b>Tag: {item.tag}</b></small></td>
                 </tr>;
-                return item || item.url ? tableRow : null;
+                return item || item.url ? tableRow : tableRow; //null;
             });
     }
 
@@ -195,31 +199,30 @@ export default class LinkCheckerContainer extends Component {
 
         let progressText = `Reticulating splines...`;
 
-        if (this.state.testStopped) {
-            this.barProgress = 100;
-            progressText = `Test stopped by user!`;
-        } else {
-            if (linksProcessed === 0 && affiliateLinkCount === -1) {
-                if (scrapeInProgress) {
-                    this.barProgress = 2;
-                    progressText = `Scraping your site for Amazon links...`;
-                } else {
-                    progressText = `Scrape failed`;
-                }
-            } else if (linksProcessed === 0 && affiliateLinkCount === 0) {
+        if (scrapeInProgress) {
+            this.barProgress = 2;
+            progressText = `Scraping your site for Amazon links...`;
+        } else { 
+            if (linksProcessed === 0 && affiliateLinkCount === 0) {
                 //done scraping and no links were found
                 this.barProgress = 100;
                 progressText = `No links found`;
             } else if (linksProcessed > 0 && linksProcessed < affiliateLinkCount) {
                 // started to process links but not done yet 
                 this.barProgress = ((linksProcessed / affiliateLinkCount) * 100);
-                progressText = `Processing link (${linksProcessed}/${affiliateLinkCount})`;
-            } else if (linksProcessed >= affiliateLinkCount) {
+                progressText = `Checking with Amazon (finished ${linksProcessed} of ${affiliateLinkCount}))`;
+            } else if ((linksProcessed >= affiliateLinkCount) && affiliateLinkCount > 0) {
                 // processed all the links (done)
                 this.barProgress = 100;
                 progressText = `Done!`;
             }
         }
+
+        if (this.state.testStopped) {
+            this.barProgress = 100;
+            progressText = `Test stopped by user!`;
+        } 
+        
 
         return (
             <div>
@@ -266,7 +269,7 @@ export default class LinkCheckerContainer extends Component {
                         </div>
                     </div>
 
-                    <div className={(linksProcessed === 0) ? 'hidden' : ''}>
+                    <div className={(this.barProgress === 0) ? 'hidden' : ''}> 
                         <h3>Results</h3>
                         <p>{linksProcessed} / {affiliateLinkCount} Affiliate links processed</p>
                         <Table hover size="sm">
