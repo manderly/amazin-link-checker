@@ -18,7 +18,7 @@ Unfortunately, not every product on Amazon is in the Amazon Product Advertising 
 
 ## To run locally:
 
-1. Clone both this repo (the client) and the [server repo](https://github.com/MJGrant/amazin-link-checker-server)
+1. Clone both this repo (the client) and the [server repo](https://github.com/manderly/amazin-link-checker-server)
 2. Open a terminal window for each repo
 3. In server, ```npm install``` and ```node app.js```
 4. In client, ```cd amazin-app```, then ```yarn install```, and finally ```yarn start``` 
